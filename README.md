@@ -26,7 +26,20 @@
       <tr><td>Sportage</td><td>Kia</td><td>V12332</td><td>A123</td><td>500000</td><td>THE best kolesa</td></tr>
       <tr><td>911</td><td>Porsche</td><td>E2312</td><td>R123</td><td>3000000</td><td>THE Bbst kolesa</td></tr>
       </table>
-      cars, brands, engines, transmissions, wheels
+        <br><br>
+      <table>
+      <h2><b> Brands </b><h2>
+      <tr>
+        <th>brand_name</th>
+        <th>brand_creator_country</th>
+      </tr>
+      <tr><td>2114</td><td>LADA</td><td>V123</td><td>M123</td><td>100000</td><td>Best kolesa</td></tr>
+      <tr><td>2115</td><td>LADA</td><td>V124</td><td>M124</td><td>150000</td><td>Not best kolesa</td></tr>
+      <tr><td>Rio</td><td>Kia</td><td>V14234</td><td>A1234</td><td>400000</td><td>Best kolesa</td></tr>
+      <tr><td>Sportage</td><td>Kia</td><td>V12332</td><td>A123</td><td>500000</td><td>THE best kolesa</td></tr>
+      <tr><td>911</td><td>Porsche</td><td>E2312</td><td>R123</td><td>3000000</td><td>THE Bbst kolesa</td></tr>
+      </table>
+      brands, engines, transmissions, wheels
     - Ненормализованная в 1 таблице: car
     
     

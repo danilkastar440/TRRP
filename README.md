@@ -81,6 +81,7 @@
 - Ненормализованная в 1 таблице:
 <table class="table table-bordered table-hover table-condensed">
   <h2><b> Cars </b><h2>
+<table class="table table-bordered table-hover table-condensed">
 <thead><tr><th title="Field #1">Model</th>
 <th title="Field #2">BrandName</th>
 <th title="Field #3">BrandCreatorCountry</th>
@@ -107,10 +108,10 @@
 <td>M123</td>
 <td>M</td>
 <td align="right">5</td>
-<td>Luchshie kolesa Rossii</td>
+<td>Best kolesa</td>
 <td align="right">13</td>
-<td>Black</td>
-<td align="right">120000</td>
+<td>White</td>
+<td align="right">100000</td>
 </tr>
 <tr>
 <td>2115</td>
@@ -123,7 +124,7 @@
 <td>M123</td>
 <td>M</td>
 <td align="right">5</td>
-<td>Luchshie kolesa Rossii</td>
+<td>Not best kolesa</td>
 <td align="right">13</td>
 <td>Black</td>
 <td align="right">150000</td>
@@ -136,10 +137,10 @@
 <td align="right">100</td>
 <td align="right">90</td>
 <td>V4</td>
-<td>A123</td>
+<td>A1234</td>
 <td>A</td>
 <td align="right">4</td>
-<td>Luchie kolesa Kitaya</td>
+<td>Best kolesa</td>
 <td align="right">15</td>
 <td>Red</td>
 <td align="right">400000</td>
@@ -148,32 +149,32 @@
 <td>Sportage</td>
 <td>Kia</td>
 <td>Korea</td>
-<td>V14234</td>
+<td>V12323</td>
 <td align="right">100</td>
 <td align="right">90</td>
 <td>V4</td>
-<td>A1234</td>
+<td>A123</td>
 <td>A</td>
 <td align="right">5</td>
-<td>Luchie kolesa Kitaya</td>
+<td>THE best kolesa</td>
 <td align="right">15</td>
-<td>Red</td>
-<td align="right">400000</td>
+<td>Yellow</td>
+<td align="right">500000</td>
 </tr>
 <tr>
-<td>A500</td>
-<td>Mercedes</td>
+<td>911</td>
+<td>Porsche</td>
 <td>Germany</td>
-<td>E1488</td>
+<td>E2312</td>
 <td align="right">300</td>
 <td align="right">50</td>
 <td>V12</td>
 <td>R123</td>
 <td>A</td>
 <td align="right">8</td>
-<td>Luchshie kolesa Armenii</td>
+<td>THE best kolesa</td>
 <td align="right">20</td>
-<td>Green</td>
+<td>Blue</td>
 <td align="right">3000000</td>
 </tr>
 </tbody></table>

@@ -59,7 +59,6 @@ def write_data_mysql(data):
     return "kek"
 
 
-#TODO: DODELAT'
 def export():
     conn_mysql = mysql.connector.connect(
             host='localhost',

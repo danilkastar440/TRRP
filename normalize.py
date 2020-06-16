@@ -27,32 +27,25 @@ def write_data_mysql(data):
             database='univer'
         )
     cursor_mysql = conn_mysql.cursor()
-    cursor_mysql.execute('drop table if exists customers')
-    cursor_mysql.execute('drop table if exists branch')
-    cursor_mysql.execute('drop table if exists group_customers')
-    cursor_mysql.execute('drop table if exists groups')
-    cursor_mysql.execute('drop table if exists gender')
-    cursor_mysql.execute('create table customers(id integer(255), name varchar(255), sur_name varchar(255), registration_date varchar(255), gender_id integer(255), city varchar(255))')
-    cursor_mysql.execute('create table branch(id integer(255),name varchar(255),phone varchar(255))')
-    cursor_mysql.execute('create table group_customers(id integer(255),customer_id integer(255),group_id integer(255))')
-    cursor_mysql.execute('create table groups(id integer(255), branch_id integer(255), name varchar(255))')
-    cursor_mysql.execute('create table gender(id integer(255), name varchar(255))')
-    id = 1
-    cursor_mysql.execute(f'INSERT INTO gender(id,name) VALUES (1,"male")')
-    cursor_mysql.execute(f'INSERT INTO gender(id,name) VALUES (2,"female")')
+    cursor_mysql.execute('drop table if exists cars')
+    cursor_mysql.execute('drop table if exists engines')
+    cursor_mysql.execute('drop table if exists transmissions')
+    cursor_mysql.execute('drop table if exists brands')
+    cursor_mysql.execute('drop table if exists wheels')
+    cursor_mysql.execute('create table cars(model varchar(255), brand varchar(255),engine varchar(255), transmission varchar(255), price integer(255),wheel varchar(255))')
+    cursor_mysql.execute('create table engines(engine_model varchar(255),engine_power integer(255),engine_volume integer(255), engine_type varchar(255))')
+    cursor_mysql.execute('create table transmissions(transmission_model varchar(255),transmission_type varchar(255),transmission_gears_number integer(255))')
+    cursor_mysql.execute('create table brands(brand_name varchar(255), brand_creator_country varchar(255))')
+    cursor_mysql.execute('create table wheels(wheel_model varchar(255), wheel_radius integer(255), wheel_color varchar(255))')
     for item in data:
-        #('Petr', 'Petrov', 'male', 'Perm', 'new', '2222222222', 'normal', '31.11.2019')
-        print(item)
-        if item[2] == 'male':
-            gender_id = 1
-        else:
-            gender_id = 2
-        cursor_mysql.execute(f'INSERT INTO customers(id,name,sur_name,registration_date,gender_id,city) VALUES ({id},"{item[0]}","{item[1]}","{item[7]}",{gender_id},"{item[3]}")')
-        cursor_mysql.execute(f'INSERT INTO branch(id,name,phone) VALUES ({id},"{item[4]}","{item[5]}")')
-        cursor_mysql.execute(f'INSERT INTO group_customers(id,customer_id,group_id) VALUES ({id},{id},{id})')
-        cursor_mysql.execute(f'INSERT INTO groups(id,branch_id,name) VALUES ({id},{id},"{item[6]}")')
+        #print(item)
+        #('2114', 'LADA', 'Russia', 'V123', '80', '16', 'L4', 'M123', 'M', '5', 'Best kolesa', '13', 'White', '100000')
+        cursor_mysql.execute(f'INSERT INTO cars(model,brand,engine,transmission,price,wheel) values ("{item[0]}","{item[1]}","{item[3]}","{item[7]}",{item[13]},"{item[10]}")') 
+        cursor_mysql.execute(f'INSERT INTO engines(engine_model,engine_power,engine_volume,engine_type) values ("{item[3]}",{item[4]},{item[5]},"{item[6]}")') 
+        cursor_mysql.execute(f'INSERT INTO transmissions(transmission_model,transmission_type,transmission_gears_number) values ("{item[7]}","{item[8]}",{item[9]})') 
+        cursor_mysql.execute(f'INSERT INTO brands(brand_name,brand_creator_country) values ("{item[1]}","{item[2]}")') 
+        cursor_mysql.execute(f'INSERT INTO wheels(wheel_model,wheel_radius,wheel_color) values ("{item[10]}",{item[11]},"{item[12]}")') 
         conn_mysql.commit()
-        id += 1
 
     conn_mysql.close()
     print(f"Successfully inserted to univer ")
@@ -60,6 +53,7 @@ def write_data_mysql(data):
 
 
 def export():
+    #create connection to mysql
     conn_mysql = mysql.connector.connect(
             host='localhost',
             user='temp',
@@ -67,18 +61,20 @@ def export():
             database='univer'
         )
     cursor_mysql = conn_mysql.cursor()
+    #get list of tables
     cursor_mysql.execute("SHOW tables")
     tables = cursor_mysql.fetchall()
-    print(tables)
+    #create xlsx file
     workbook = xlsxwriter.Workbook('all_tables.xlsx')
     worksheet = workbook.add_worksheet('MENU')
+    #create style for xlsx file
     header_cell_format = workbook.add_format({'bold': True, 'border': True, 'bg_color': 'yellow'})
     body_cell_format = workbook.add_format({'border': True})
     row_index = 0
     for tablename_raw in tables:
         rows = []
         tablename = str(tablename_raw)[2:-3]
-        print(f'{tablename}')
+        print(tablename)
         cursor_mysql.execute(f'select * from {tablename}')
         header = [row[0] for row in cursor_mysql.description]
         rows += cursor_mysql.fetchall()

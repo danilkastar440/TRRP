@@ -2,10 +2,8 @@
 Использованные СУБД: sqlite3 & MySQL <br>
 Язык программирования: Python3 <br>
 Как использовать: <br>
-1. Для считывания и нормализации данных из sqlite3 в MySQL <br>
-    python3 normalize.py --filename baza.db <br>  
-2. Для экспорта из MySQL в xlsx: <br> 
-    python3 normalize.py --export <br>
+1. Для считывания и нормализации данных из sqlite3 в MySQL: <b>python3 normalize.py --filename baza.db</b> <br>  
+2. Для экспорта из MySQL в xlsx: <b>python3 normalize.py --export</b> <br><br>
   
 
   
